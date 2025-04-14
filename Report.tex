@@ -1,0 +1,175 @@
+% !TeX program = lualatex
+\documentclass[11pt,version=last]{scrreprt} % KOMA defaults to a4 paper
+% BCOR=0mm: offset for book binding
+% oneside: can be usesd instead of twoside
+
+
+\KOMAoptions{%
+draft=true, % switch between draft and final
+titlepage=true, % seperate titlepage
+abstract=true, % abstract heading or not  
+twoside=false, % two or one side
+parskip=false, % can also be full, full+, full-, full*, same for half. 
+}
+\usepackage{setspace}
+\onehalfspacing 
+\AfterTOCHead{\singlespacing}
+
+\usepackage[breaklinks]{hyperref}
+%\usepackage{titling} % for \thetitle \theauthor commands for self designed title page
+\usepackage{tabularray} % nice table handling https://ctan.org/pkg/tabularray
+\UseTblrLibrary{booktabs}
+%\usepackage{booktabs} % provides \toprule \midrule and \bottomrule % included in TblrLibratyß
+\usepackage[usenames,dvipsnames]{xcolor} % all the colors
+
+\usepackage{listings} % for code blocks
+
+
+
+% import some nice fonts
+%\usepackage{lmodern}
+\usepackage{sourcesanspro} % sans font
+\usepackage[default]{sourceserifpro} % serif font, as default
+
+\usepackage[english]{babel}
+\usepackage{csquotes} % enqutoe command
+\usepackage{graphicx} % for better grafic handling
+
+\usepackage[backend=biber]{biblatex} %biblatex mit biber laden
+\ExecuteBibliographyOptions{
+sorting=nyt, %Sortierung Autor, Titel, Jahr
+bibwarn=true, %Probleme mit den Daten, die Backend betreffen anzeigen
+isbn=false, %keine isbn anzeigen
+url=false %keine url anzeigen
+}
+\addbibresource{test1.bib}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SETUP 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{headings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{LaTeX Template}
+\author{Rouven Bissinger\\contact@rouven.xyz}
+\date{February 15, 2025} % comment out or use \date{\today} for compile date
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BEGIN DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+% must be after \begin{document}
+\titlehead{{Albstadt-Sigmaringen University\hfill SS~2025\\}Faculty of Computer Science} 
+\subtitle{Subtitle}
+\publishers{Adviser Prof. John Doe}
+
+
+
+\maketitle
+
+\begin{abstract}
+This is a simple latex template which is designed to work with the live typesetting od Texpad in Texifier. I also wanted a template that is a bit more than the default report or article classes which also looks nice (ok, this is subjective).
+\end{abstract}
+
+\tableofcontents
+    \chapter{This is a Chapter}
+    the \texttt{\textbackslash ifthispageodd}\ command can say if a page is odd \ifthispageodd{and yes this page is odd}{but this page is even}
+    
+     KOMAscript documentation (document clas): \url{https://ftp.tu-chemnitz.de/pub/tex/macros/latex/contrib/koma-script/doc/scrguide-en.pdf}
+    
+    
+    \section{This is a Section}
+    
+   
+    
+    
+    This is some more text followed by some sample text:
+    
+    
+    
+    \chapter[short version of another chapter]{Another Chapter whith a verry looooooong long long long heading}
+    \newpage
+    Newpage!
+    \begin{table}
+    \caption{A sample table}
+        
+   \centering
+    \begin{tblr}{|c|c|c|c|c|}
+    \hline
+    \SetCell[r=2]{c} 2 Rows
+    & \SetCell[c=2]{c} 2 Columns
+    & & \SetCell[r=2,c=2]{c} 2 Rows 2 Columns & \\
+    \hline
+    & 2-2 & 2-3 & & \\
+    \hline
+    3-1 & 3-2 & 3-3 & 3-4 & 3-5 \\
+    \hline
+\end{tblr}
+    
+\end{table}    
+
+
+    
+    \begin{longtblr}[caption = {Long Table with fixed column width}]{colspec = {|l|m{15em}|}, rowhead=1}
+\toprule
+Table & header\\
+\toprule
+\SetCell[r=2]{m,1cm} {Line \\ Line \\ Line \\ Line} & Alpha \\
+\cline{2}
+& Beta \\
+spaceholder & text \\
+to & get \\
+this & table \\
+to & cover\\
+more & than \\
+one & page \\
+spaceholder & text \\
+to & get \\
+this & table \\
+to & cover\\
+more & than \\
+one & page \\
+spaceholder & text \\
+to & get \\
+this & table \\
+to & cover\\
+more & than \\
+one & page \\
+spaceholder & text \\
+to & get \\
+this & table \\
+to & cover\\
+more & than \\
+one & page \\
+spaceholder & text \\
+to & get \\
+this & table \\
+to & cover\\
+more & than \\
+one & page \\
+spaceholder & text \\
+to & get \\
+this & table \\
+to & cover\\
+more & than \\
+one & page \\
+spaceholder & text \\
+to & get \\
+this & table \\
+to & cover\\
+more & than \\
+one & page \\
+spaceholder & text \\
+to & get \\
+this & table \\
+to & cover\\
+more & than \\
+one & page \\
+
+\hline
+\end{longtblr}
+
+\end{document}
