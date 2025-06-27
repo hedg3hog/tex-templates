@@ -1,0 +1,98 @@
+% !TeX program = lualatex
+% !TeX root = presentation.tex
+\documentclass[hyperref={colorlinks=false, breaklinks}]{beamer}
+\usetheme[%
+  progressbar=frametitle,                % progressbar below title
+  sectionpage=none,                % no section pages
+  subsectionpage=none,          % no subSection pages
+  numbering=fraction,]{metropolis}   % numbering 1/n
+\usefonttheme{professionalfonts}
+\setbeameroption{show notes on second screen=right} % to use notes with pympress: https://pympress.github.io/
+%\usepackage{xcolor}
+
+% Theme: https://github.com/matze/mtheme
+% https://ctan.org/pkg/beamertheme-metropolis
+\usepackage{appendixnumberbeamer} % for appendix numbering
+\usepackage{pdfcomment}
+\usepackage{csquotes}
+\usepackage[backend=biber]{biblatex} 
+\ExecuteBibliographyOptions{
+sorting=nyt, %sort Autor, Titel, Year
+bibwarn=true, %show warnings
+isbn=false, %no isbn 
+url=false %no url 
+}
+\pdfstringdefDisableCommands{%
+  \def\translate#1{#1}%
+}
+%\addbibresource{Bibfile.bib}
+
+
+
+\title{Presentation Template}
+\author{hedg3hog (contact@hed3hog.com)}
+\subtitle{}
+\institute{Your institute
+\\
+
+%\hfill\includegraphics[height=1cm]{figures/logo.png}%
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% you can use sections, disable or enable section slides with document options
+\section{Introduction}
+
+
+\begin{frame}
+    \frametitle{This is the first Slide}\centering
+
+    \note{
+        \begin{itemize}
+            \item notes are here
+        \end{itemize}
+    }
+\end{frame}
+\begin{frame}{second Slide}
+    \centering
+    \begin{itemize}
+        \item <1-> Item appearing first (when slide is shown)
+        \item <2-> Item appearing second
+        \item <2-> also appearing second
+    \end{itemize}
+
+
+    \note{
+        \begin{itemize}
+            \item some
+            \item notes
+            \item here
+            \item Note: % to use notes with pympress: https://pympress.github.io/, \setbeameroption{show notes on second screen=right} must be in preamble
+        \end{itemize}
+    }
+\end{frame}
+
+\begin{frame}[standout, plain]
+    \centering\Huge Thank You!
+\end{frame}
+\appendix
+\begin{frame}
+    \frametitle{Backup Slides in appendix}
+    \centering
+    \begin{itemize}
+        \item Type 1: fast, automatic
+        \item Type 2: slow, with thinking
+        \item Type 2 is not better by default
+    \end{itemize}
+    \cite{kitkowska_hows_2023}
+\end{frame}
+
+
+% Bibliography
+
+% \begin{frame}[allowframebreaks]{References}
+%     \printbibliography[heading=none]
+% \end{frame}
+\end{document}
